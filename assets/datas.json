@@ -1,0 +1,18 @@
+{
+  "vocabulary": [
+    {
+      "werePrompt": false,
+      "words": [
+        "bonjour",
+        "hello"
+      ]
+    },
+    {
+      "werePrompt": false,
+      "words": [
+        "au revoir",
+        "goodbye"
+      ]
+    }
+  ]
+}
