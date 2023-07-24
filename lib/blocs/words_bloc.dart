@@ -25,13 +25,23 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
     });
 
     on<NextQuestion>((event, emit) async {
+      print('next');
       if (currentQuestionIndex < words.length - 1) {
         currentQuestionIndex++;
         emit(QuestionChanged(words[currentQuestionIndex]));
       } else {
-        emit(QuizFinished(1)); // Remplacez 1 par le score approprié
+        emit(QuizFinished(1)); // Remplacer 1 par le bon score
       }
     });
+
+    on<SubmitAnswer>((event, emit) async {
+      if (event.userAnswer == words[currentQuestionIndex].translations[1]) {
+        emit(QuestionCorrectChanged(words[currentQuestionIndex]));
+      } else {
+        emit(QuestionWrongChanged(words[currentQuestionIndex]));
+      }
+    });
+
   }
 
 }
